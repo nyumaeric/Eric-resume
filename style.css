@@ -1,0 +1,798 @@
+* {
+    scroll-behavior: smooth;
+}
+
+:root {
+    --bg-color: rgb(20,20,20);
+    --card-color: rgb(23,23,23);
+    --color-green300: hsla(159, 42%, 88%, 1);
+    --color-green400: hsla(160, 52%, 71%, 1);
+    --color-green500: rgb(2, 30, 90);
+    --color-green600: rgb(76, 76, 103);
+    --color-green700: hsla(171, 11%, 24%, 1);
+    --color-green800: hsla(158, 23%, 18%, 1);
+    --color-yellow500: hsla(36, 97%, 70%, 1);
+    --color-yellow600: hsla(36, 74%, 25%, 1);
+    --color-yellow700: hsla(36, 91%, 13%, 1);
+    --color-primary: var(--color-green800);
+    --color-primary-accent: var(--color-green400);
+    --color-gradient: linear-gradient( to bottom, hsla(158, 23%, 18%, 0) 0%, hsla(158, 23%, 18%, .013) 9.7%, hsla(158, 23%, 18%, .049) 18.1%, hsla(158, 23%, 18%, .104) 25.5%, hsla(158, 23%, 18%, .175) 31.9%, hsla(158, 23%, 18%, .259) 37.7%, hsla(158, 23%, 18%, .352) 43%, hsla(158, 23%, 18%, .45) 47.9%, hsla(158, 23%, 18%, .55) 52.8%, hsla(158, 23%, 18%, .648) 57.7%, hsla(158, 23%, 18%, .741) 63%, hsla(158, 23%, 18%, .825) 68.7%, hsla(158, 23%, 18%, .896) 75%, hsla(158, 23%, 18%, .951) 82.2%, hsla(158, 23%, 18%, .987) 90.5%, hsl(158, 23%, 18%) 100% );
+    --color-text-primary: var(--color-green400);
+    --font-h1: clamp(3.2rem, .5692rem + 8.238vw, 13.75rem);
+    --font-body: clamp(1rem, .8852rem + .4898vw, 1.375rem);
+    --color-text-secondary: var(--color-green300);
+    --color-text-tertiary: var(--color-green800);
+    --font-h2-display: clamp(1.875rem, 1.301rem + 2.449vw, 3.95rem);
+    --font-h2: clamp(1.5rem, 1.0982rem + 1.7143vw, 2.8125rem);
+    --color-white30: hsla(160, 52%, 71%, .05);
+    --42px: 2.652rem;
+    --64px: 4rem;
+    --14px: 0.875rem;
+    --16px: 1rem;
+    --max-width: 1600px;
+    --20px: 1.25rem;
+    --spacing-l: max( var(--42px), calc(var(--42px) + (84 - 42) * ((100vw - 375px) / (1600 - 375))) );
+    --spacing-xs: max( var(--14px), calc(var(--14px) + (28 - 14) * ((100vw - 375px) / (1600 - 375))) );
+    --font-h3: clamp(1.375rem, 1.1837rem + .8163vw, 2rem);
+    --color-light-border: hsla(160, 52%, 71%, .2);
+    --radius-base: .75rem;
+    --shadow-lg: 0px 50px 100px -20px rgba(0, 0, 0, .15);
+    --zindex-nav: 1000;
+    --zindex-top: 100;
+    --radius-base: .75rem;
+    --color-backdrop: hsla(158, 23%, 18%, .7);
+    --color-white: hsla(0, 0%, 100%, 1);
+    --font-mini: clamp(.875rem, .8367rem + .1633vw, 1rem);
+    --zindex-content: 50;
+    --color-text-secondary: var(--color-green300);
+    --color-opaque: hsla(160, 52%, 71%, .1);
+    --24px: 1.5rem;
+    --font-link: clamp(.875rem, .7985rem + .3265vw, 1.125rem);
+}
+
+@font-face {
+    font-family: "acorn";
+    src: url('./fonts/Acorn-Bold.woff2') format('woff2'),
+         url('./fonts/Acorn-Bold.woff') format('woff');
+}
+
+@font-face {
+    font-family: "acorn-light";
+    src: url('./fonts/Acorn-Light.woff2') format('woff2'),
+         url('./fonts/Acorn-Light.woff') format('woff');
+}
+
+@font-face {
+    font-family: "acorn-mediun";
+    src: url('./fonts/Acorn-Medium.woff2') format('woff2'),
+         url('./fonts/Acorn-Medium.woff') format('woff');
+}
+
+@font-face {
+    font-family: "acorn-regular";
+    src: url('./fonts/Acorn-Regular.woff2') format('woff2'),
+         url('./fonts/Acorn-Regular.woff') format('woff');
+}
+
+@font-face {
+    font-family: "acorn-semi-bold";
+    src: url('./fonts/Acorn-SemiBold.woff2') format('woff2'),
+         url('./fonts/Acorn-SemiBold.woff') format('woff');
+}
+
+
+@font-face {
+    font-family: "gt";
+    src: url('./fonts/gt.woff') format('woff');
+}
+
+/* .header {
+    background-color: var(--color-gradient);
+} */
+
+body {
+    background: var(--color-primary);
+}
+/* --------------- Header Section -------------------- */
+
+header {
+    position: fixed;
+    z-index: var(--zindex-nav);
+    top: 0;
+    right: 0;
+    left: 0; 
+    width: 100%;
+    padding: 0 var(--16px);
+    box-sizing: border-box;
+    margin-bottom: 100px !important;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: var(--max-width);
+    margin: var(--20px) auto 0;
+    position: relative;
+    z-index: var(--zindex-nav);
+    box-sizing: border-box;
+    font-family: "gt", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: var(--color-text-primary);
+}
+
+.main {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: calc(var(--20px) - 10px);
+    border-radius: 50px;
+    transition: all .2s linear;
+    box-sizing: border-box;
+}
+
+.list-item {
+    display: flex;
+    position: relative;
+}
+
+.nav-scroll {
+    background: var(--color-backdrop);
+    backdrop-filter: blur(20px) saturate(1.7);
+}
+
+.list-item a {
+    padding: calc(var(--16px) - 10px) calc(var(--16px) - 6px);
+    margin: 0 3px;
+    font-size: var(--font-link);
+    border-radius: var(--24px);
+    text-decoration: none;
+    color: var(--color-text-secondary);
+    transition: all .2s ease-in-out;
+    display: flex;
+    align-items: center;
+}
+
+#cont, #cont1 {
+    cursor: pointer;
+}
+/* -------------------Intro section--------------- */
+.heading {
+    font-family: "acorn", sans-serif;
+    padding-top: 5rem;
+    text-align: center;
+    font-size: var(--font-h1);
+    line-height: 100%;
+    letter-spacing: -2px;
+    font-weight: 700;
+    color: var(--color-text-primary);
+}
+
+.header > div {
+    position: relative;
+    margin-top: 100px;
+}
+
+.header p {
+    font-size: var(--font-body);
+    text-align: center;
+    font-family: "gt", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: var(--color-text-secondary);
+    letter-spacing: -.3px;
+    line-height: 160%;
+}
+
+#opening {
+    position: absolute;
+    left: 15%;
+    top: 70%;
+}
+#closing {
+    position: absolute;
+    left: 75%;
+    top: 20%;
+}
+
+
+/* -------------------About section--------------- */
+
+.about-content {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 2rem 0 1rem;
+}
+
+.person {
+    background: var(--color-yellow500);
+    border-radius: 200px 200px 0 0;
+    margin-left: 5rem;
+}
+
+.per-intro p {
+    margin-top: 0;
+    height: 80px;
+    text-align: center;
+    padding-top: 5%;
+    color: var(--color-primary);
+    font-size: 24px;
+    font-family: "acorn", sans-serif;
+    background: var(--color-primary-accent);
+    margin-left: 5rem;
+}
+
+.about-text {
+    width: 60%;
+}
+.about-text h2 {
+    font-size: var(--font-h2-display);
+    text-align: center;
+    font-family: "acorn", sans-serif;
+    color: var(--color-text-primary);
+    line-height: 110%;
+}
+
+.about-text p {
+    font-family: "gt", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: var(--color-text-secondary);
+    font-size: 20px;
+    line-height: 160%;
+}
+
+/* ----------------Highlights Section ---------------- */
+
+.highlights {
+    display: flex;
+    flex-direction: column;
+    font-family: "gt", sans-serif;
+    font-size: 1rem;
+    margin-top: 3%;
+    box-sizing: border-box;
+}
+
+.highlights h1 {
+    font-family: "gt", sans-serif;
+}
+
+.first-high h1,
+.second-high h1,
+.third-high h1,
+.fourth-high h1{
+    margin: 0; 
+    margin-bottom: 0.5rem; 
+    color: var(--color-text-tertiary);
+}
+
+.first-high p,
+.second-high p,
+.third-high p,
+.fourth-high p {
+    margin: 0;
+    color: var(--color-text-tertiary);
+}
+
+.first-high {
+    background: var(--color-primary-accent);
+    border-radius: 4rem;
+    padding: 1rem 1.5rem;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+    margin-right: 3em;
+    width: 50%;
+    min-height: 80px;
+    align-self: flex-end;
+    display: flex;
+    justify-content: space-between;
+}
+
+.second-high {
+    background: var(--color-primary-accent);
+    box-sizing: border-box;
+    border-radius: 4rem;
+    padding: 1rem 1.5rem;
+    margin-bottom: 15px;
+    width: 59%;
+    min-height: 80px;
+    margin-right: 3em;
+    align-self: flex-end;
+    display: flex;
+    justify-content: space-between;
+}
+
+.third-high {
+    background: var(--color-primary-accent);
+    border-radius: 4rem;
+    padding: 1rem 1.5rem;
+    margin-bottom: 15px;
+    width: 23%;
+    min-height: 80px;
+    box-sizing: border-box;
+    align-self: flex-start;
+    display: flex;
+    margin-left: 25%;
+    justify-content: space-between;
+}
+
+.fourth-high {
+    background: var(--color-primary-accent);
+    border-radius: 4rem;
+    padding: 1rem 1.5rem;
+    margin-bottom: 20px;
+    width: 17%;
+    min-height: 80px;
+    align-self: flex-start;
+    box-sizing: border-box;
+    display: flex;
+    margin-left: 7%;
+    justify-content: space-between;
+}
+
+/* ---------------Education--------------- */
+
+.education {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 5% 2% .5% 15%;
+}
+.edu-header {
+    line-height: 150%;
+    font-family: "acorn-regular", sans-serif;
+    font-size: var(--font-h2);
+    letter-spacing: -1px;
+    color: var(--color-text-primary);
+    text-align: center;
+    
+}
+
+.edu-header h2 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.education p {
+    font-family: "gt", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: var(--color-text-secondary);
+    font-size: 20px;
+    line-height: 160%;
+    margin-left: 5%;
+    margin-right: 30%;
+}
+
+/* -------------------Skills-------------------------- */
+
+.skills {
+    background: var(--color-white30);
+    backdrop-filter: blur(10px) saturate(1.3);
+    border-radius: var(--64px);
+    margin: 4% 4% 4% 4%;
+    padding: 2rem 2rem 0 5rem;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.skills-left {
+    display: flex;
+    margin-bottom: 4%;
+}
+
+.number {
+    width: 50%;
+    margin-right: 4%;
+}
+
+.number > div {
+    font-size: var(--42px);
+    color: var(--color-text-primary);
+    opacity: .5;
+}
+
+.number h3 {
+    font-size: var(--font-h3);
+    font-family: "acorn", sans-serif;
+    color: var(--color-text-primary);
+
+}
+
+.number p {
+    color: var(--color-text-secondary);
+    font-size: var(--font-body);
+    font-family: "gt", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    line-height: 160%;
+}
+
+.explanation {
+    font-family: "gt", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: var(--color-text-secondary);
+    font-size: 20px;
+    line-height: 160%;
+    margin-left: 17%;
+    margin-right: 30%;
+}
+
+/* --------------Projects section ------------------ */
+
+.cards {
+    display: flex;
+    margin-right: 2rem;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: var(--color-green800);
+    backdrop-filter: blur(10px) saturate(1.3);
+    box-shadow: 0 0 0 1px var(--color-light-border);
+    border-radius: var(--radius-base);
+    font-size: var(--font-body);
+    padding: 2rem;
+    box-sizing: border-box;
+    margin-left: 2rem;
+    width: 30%;
+    transition: all .3s ease-in-out;
+    margin-bottom: 2rem;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    background: var(--color-white30);
+}
+
+.card h3 {
+    font-size: var(--font-h3);
+    color: var(--color-text-primary);
+}
+
+.card p {
+    color: var(--color-text-secondary);
+    font-size: var(--font-body);
+    font-family: "gt", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    line-height: 160%;
+}
+
+.card p > a {
+    text-decoration: none;
+    color: var(--color-text-primary);
+} 
+
+
+
+
+.about, .highlights, .education, .skills, .explanation, .project, .footer {
+    opacity: 0;
+    transform: translateY(100px);
+    transition: opacity 2s, transform 2s;
+}
+
+/* -----------Contact Section ------------------------ */
+.contact {
+    left: auto;
+    top: auto;
+    width: 350px;
+    height: 600px;
+    right: 40px;
+    bottom: 40px;
+    position: fixed;
+    z-index: var(--zindex-nav);
+    box-shadow: var(--shadow-lg);
+    backdrop-filter: blur(40px) saturate(1.3);
+    overflow: hidden;
+    border-radius: var(--radius-base);
+    box-sizing: border-box;
+    border: 1px solid var(--color-primary-accent)!important;
+    background: var(--color-backdrop)!important;
+    display: none;
+}
+
+.contact-header {
+    background: var(--color-primary-accent);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--16px);
+    line-height: 1.2;
+    position: absolute;
+    z-index: var(--zindex-top);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.avatar {
+    margin-right: var(--16px);
+}
+
+.avatar img {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 2px solid var(--color-white);
+}
+
+.contact-header-details {
+    flex: 1;
+    color: var(--color-text-tertiary);
+    font-size: var(--font-mini);
+    font-family: "gt", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.contact-name {
+    font-size: 18px;
+}
+
+.close {
+    width: var(--42px);
+    height: var(--42px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+    border-radius: var(--radius-base);
+    fill: var(--color-primary);
+}
+
+.close:hover {
+    background: var(--color-green500);
+}
+
+.contact-info {
+    width: 100%;
+    position: absolute;
+    top: 74px;
+    overflow-y: scroll;
+    height: 526px;
+    z-index: var(--zindex-content);
+    padding: var(--16px);
+    box-sizing: border-box;
+}
+
+.question-holder {
+    display: flex;
+    font-family: "gt", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: var(--16px);
+    color: var(--color-text-primary);
+    box-sizing: border-box;
+}
+
+.text-holder {
+    color: var(--color-text-secondary)!important;
+    background: var(--color-opaque)!important;
+    position: relative;
+    display: inline-block;
+    padding: var(--16px);
+    border-radius: var(--16px);
+    background: var(--color-white);
+    color: var(--color-text-primary);
+    margin-bottom: 6px;
+    box-sizing: border-box;
+}
+
+.button-holder {
+    box-sizing: border-box;
+}
+
+.button-holder > .bq {
+    margin-bottom: 6px;
+}
+
+.bq > button {
+    padding: var(--16px) var(--24px);
+    border-radius: var(--42px);
+    background: transparent;
+    border: 2px solid var(--color-primary-accent);
+    color: var(--color-primary-accent);
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+    font-family: "gt", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: var(--16px);
+}
+
+.messages {
+   display: flex;
+   font-family: "gt", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+   font-size: var(--16px);
+   flex-direction: column;
+}
+
+.bot-message {
+    color: var(--color-text-secondary)!important;
+    background: var(--color-opaque)!important;
+    position: relative;
+    display: inline-block;
+    padding: var(--16px);
+    border-radius: var(--16px);
+    background: var(--color-white);
+    color: var(--color-text-primary);
+    margin-bottom: 6px;
+    box-sizing: border-box;
+    align-self: flex-start;
+    justify-self: flex-start;
+
+}
+
+.user-message {
+    background: var(--color-green500)!important;
+    color: var(--color-text-secondary)!important;
+    justify-content: flex-end;
+    position: relative;
+    display: inline-block;
+    padding: var(--16px);
+    border-radius: var(--16px);
+    margin-bottom: 6px;
+    box-sizing: border-box;
+    align-self: flex-end;
+    justify-self: flex-end;
+
+}
+
+
+#outro {
+    margin-left: 24%;
+}
+
+
+/* ---------------Footer---------------- */
+
+.footer {
+    display: flex;
+    justify-content: space-evenly;
+    font-family: "gt", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: var(--16px);
+    margin-top: 8%;
+}
+
+
+.footer h2 {
+    color: var(--color-text-primary);
+    font-size: 20px;
+}
+
+footer a {
+    color: var(--color-text-secondary);
+    font-size: 18px;
+}
+
+.footer ul>li {
+    list-style-type: none;
+    margin-bottom: 2rem;
+}
+
+.footer ul>li>a {
+    text-decoration: none;
+}
+
+.fav {
+    display: flex;
+    background: var(--color-opaque);
+    padding: 0 2rem 1.5rem 2rem;
+    border-radius: 50px;
+}
+
+.icon {
+    margin-right: 2rem;
+    margin-top: 1.5rem;
+}
+
+#repeat {
+    color: var(--color-text-primary);
+    font-size: 16px;
+    opacity: 0.7;
+}
+
+.song a {
+    text-decoration: none;
+}
+
+
+
+/* -------------------Media Queries ------------------- */
+
+@media screen and (max-width: 996px) {
+    .about-content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .about-text {
+        width: 90%;
+    }
+    .about-text h2 {
+        margin-left: 2rem;
+    }
+    .about-text p {
+        margin-left: 2rem;
+    }
+
+    .person {
+        display: none;
+    }
+
+    .per-intro p {
+        display: none;
+    }
+
+    .main {
+        flex-wrap: wrap;
+    }
+
+    .first-high,
+    .second-high,
+    .third-high,
+    .fourth-high {
+        width: 80%;
+        margin-left: 2rem;
+        align-self: center;
+        display: flex;
+        margin-right: 2rem;
+    }
+
+    .cards {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .card {
+        width: 80%;
+    }
+
+    .skills {
+        margin: 0;
+        border-radius: 0;
+    }
+
+    .skills-left {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .number {
+        width: 80%;
+    }
+
+    .footer {
+        flex-direction: column;
+    }
+
+    .copyright h2 {
+        display: none;
+    }
+    .edu-header h2 {
+        display: block;
+        margin-right: 2rem;
+    }
+
+    .education p {
+        margin-right: 2rem;
+        width: 90%;
+    }
+
+    .explanation {
+        width: 90%;
+        margin-left: 2rem;
+        margin-right: 2rem; 
+    }
+
+    #outro {
+        margin-left: .5rem;
+    }
+
+    #opening {
+        display: none;
+    }
+    #closing {
+        display: none;
+    }
+
+    .contact {
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+    }
+
+
+}
